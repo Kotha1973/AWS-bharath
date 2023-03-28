@@ -10,8 +10,16 @@
             <a href="{{ url('client') }}" class="w3-bar-item w3-button">Blogs</a>
             <a href="#" class="w3-bar-item w3-button">Rms Profile</a>
             <a href="#" class="w3-bar-item w3-button"  onclick="location.href='{{ url('profile') }}'">Profile</a>
+                 <a class="dropdown-item" href="{{ route('logout') }}"
+                   onclick="event.preventDefault();
+                                 document.getElementById('logout-form').submit();">
+                    {{ __('Logout') }}
+                </a>
 
-        </div>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    @csrf
+                </form>
+         </div>
 
     </div>
 
