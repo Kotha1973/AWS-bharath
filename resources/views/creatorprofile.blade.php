@@ -6,11 +6,11 @@
             Investment
         </h1>
         <div style="margin-top:10vh">
-            <a  onclick="location.href='{{ url('client') }}'" class="w3-bar-item w3-button" >Dashboard</a>
-            <a href="{{ url('client') }}" class="w3-bar-item w3-button">Blogs</a>
-            <a href="#" class="w3-bar-item w3-button">Rms Profile</a>
+            <a  onclick="location.href='{{ url('admin') }}'" class="w3-bar-item w3-button" >Dashboard</a>
+            <a href="{{ url('ideas') }}" class="w3-bar-item w3-button">Blogs</a>
+            <a href="#" class="w3-bar-item w3-button"  onclick="location.href='{{ url('rmprofiles') }}'">Rms Profile</a>
             <a href="#" class="w3-bar-item w3-button"  onclick="location.href='{{ url('profile') }}'">Profile</a>
-            <a class="dropdown-item" href="{{ route('logout') }}"
+            <a class="dropdown-item w3-bar-item w3-button" href="{{ route('logout') }}"
             onclick="event.preventDefault();
                           document.getElementById('logout-form').submit();">
              {{ __('Logout') }}
@@ -30,7 +30,8 @@
                 <img src="images/a.jpg" class="rounded-circle" alt="Cinque Terre">
 
                 <h5>
-                    joe
+                    {{ Auth::user()->name }}
+
                 </h5>
             </div>
 
@@ -42,13 +43,14 @@
                         <div class="col-md-4">
                             <div class="profile-img">
                                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog" alt=""/>
-                     
+
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="profile-head">
                                         <h5>
-                                            Joe
+                                            {{ Auth::user()->name }}
+
                                         </h5>
                                         <h6>
                                             Creator
@@ -57,11 +59,11 @@
                                     <li class="nav-item">
                                         <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
                                     </li>
-                          
+
                                 </ul>
                             </div>
                         </div>
-                        
+
                     </div>
                     <div class="row">
                         <div class="col-md-4">
@@ -76,7 +78,7 @@
                                 <a href="">Ap</a><br/>
                                 <p>Country</p>
                                 <a href="">India</a><br/>
-                      
+
                             </div>
                         </div>
                         <div class="col-md-8">
@@ -87,7 +89,8 @@
                                                     <label>User Id</label>
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <p>Kshiti123</p>
+                                                    <p>                    {{ Auth::user()->id }}
+                                                    </p>
                                                 </div>
                                             </div>
                                             <div class="row">
@@ -95,7 +98,7 @@
                                                     <label>Name</label>
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <p>Joe</p>
+                                                    <p> {{ Auth::user()->name }}</p>
                                                 </div>
                                             </div>
                                             <div class="row">
@@ -103,18 +106,11 @@
                                                     <label>Email</label>
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <p>kshitighelani@gmail.com</p>
+                                                    <p> {{ Auth::user()->email }}</p>
                                                 </div>
                                             </div>
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <label>Phone</label>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <p>123 456 7890</p>
-                                                </div>
-                                            </div>
-                                
+
+
                                 </div>
                                 <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                                             <div class="row">

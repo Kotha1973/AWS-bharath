@@ -20,6 +20,7 @@
              @csrf
          </form>
         </div>
+
     </div>
 
     <div style="margin-left:17%">
@@ -34,14 +35,15 @@
 
         </div>
         <div class="dash shadow-sm p-3 mb-5 bg-white rounded">
-            <h2 class="">Investment ideas</h2>
-            <button type="button" class="btn btn-danger" onclick="location.href='{{ route('addblog') }}'">ADD Blog</button>
+            <h2 class="">Published ideas</h2>
 
             <table class="table">
                 <thead>
                     <tr>
                         <th scope="col">ID</th>
                         <th scope="col">title</th>
+                                                <th scope="col">Content</th>
+
                         <th scope="col">Abstract</th>
 
                         <th scope="col">product</th>
@@ -54,14 +56,12 @@
                         <tr>
                             <th scope="row">{{ $index + 1 }}</th>
                             <td>{{ $blog->title }}</td>
+                            <td>{{ $blog->Content }}</td>
                             <td>{{ $blog->abstract }}</td>
                             <td>{{ $blog->product }}</td>
                             <td><button type="button" class="btn btn-info"
-                                onclick="location.href='{{ url('viewblog', $blog->id) }}'"
-                                >Publish</button>
-                                <button type="button" class="btn btn-danger"
-                                onclick="location.href='{{ url('viewblog', $blog->id) }}'"
-                                >Delete</button>
+                                   >Published</button>
+
                             </td>
                         </tr>
                     @endforeach
