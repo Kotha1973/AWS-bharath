@@ -7,12 +7,12 @@
         </h1>
         <div style="margin-top:10vh">
             <a  onclick="location.href='{{ url('client') }}'" class="w3-bar-item w3-button" >Dashboard</a>
-            <a href="{{ url('client') }}" class="w3-bar-item w3-button">Blogs</a>
-            <a href="#" class="w3-bar-item w3-button">Rms Profile</a>
-            <a href="#" class="w3-bar-item w3-button"  onclick="location.href='{{ url('profile') }}'">Profile</a>
+            <a href="{{ url('clientblogs') }}" class="w3-bar-item w3-button">Blogs</a>
+            <a href="{{ url('clientRms') }}" class="w3-bar-item w3-button">Rms Profile</a>
+            <a href="{{ url('clientProfile') }}" class="w3-bar-item w3-button"  onclick="location.href='{{ url('profile') }}'">Profile</a>
                  <a class="dropdown-item" href="{{ route('logout') }}"
                    onclick="event.preventDefault();
-                                 document.getElementById('logout-form').submit();">
+                                  document.getElementById('logout-form').submit();">
                     {{ __('Logout') }}
                 </a>
 
@@ -24,12 +24,12 @@
     </div>
 
     <div style="margin-left:17%">
-    <div class="topnav">
+        <div class="topnav">
             <div class="side">
-                <img src="" class="rounded-circle" alt="Cinque Terre">
+                <img src="images/a.jpg" class="rounded-circle" alt="Cinque Terre">
 
                 <h5>
-                    joe
+                    {{ Auth::user()->name }}
                 </h5>
             </div>
 
@@ -42,29 +42,32 @@
                     <tr>
                         <th scope="col">ID</th>
                         <th scope="col">title</th>
-                        <th scope="col">Date</th>
+                        <th scope="col">Content</th>
+
+                        <th scope="col">Abstract</th>
+
+                        <th scope="col">product</th>
                         <th scope="col">Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Bitcoin crash Expect1</td>
-                        <td>01.01.2023</td>
-                        <td><button type="button" class="btn btn-info" onclick="location.href='{{ url('viewblog') }}'">View</button></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Bitcoin crash Expect 2</td>
-                        <td>01.01.2023</td>
-                        <td><button type="button" class="btn btn-info">View</button></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Bitcoin crash Expect 3</td>
-                        <td>01.01.2023</td>
-                        <td><button type="button" class="btn btn-info">View</button></td>
-                    </tr>
+
+                    @foreach ($blogs as $index => $blog)
+                        <tr>
+                            <th scope="row">{{ $index + 1 }}</th>
+                            <td>{{ $blog->title }}</td>
+                            <td>{{ $blog->Content }}</td>
+
+                            <td>{{ $blog->abstract }}</td>
+                            <td>{{ $blog->product }}</td>
+                            <td><button type="button" class="btn btn-info"
+                                onclick="location.href='{{ url('viewclientblog', $blog->id) }}'"
+                                >Proceed</button>
+
+                            </td>
+                        </tr>
+                    @endforeach
+
                 </tbody>
             </table>
         </div>

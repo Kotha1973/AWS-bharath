@@ -21,6 +21,7 @@
          </form>
         </div>
 
+
     </div>
 
     <div style="margin-left:17%">
@@ -35,33 +36,28 @@
 
         </div>
         <div class="dash shadow-sm p-3 mb-5 bg-white rounded">
-            <h2 class="">Ideas</h2>
+            <h2 class="">Managers</h2>
+
             <table class="table">
                 <thead>
                     <tr>
                         <th scope="col">ID</th>
-                        <th scope="col">title</th>
-                        <th scope="col">Content</th>
+                                                 <th scope="col">Name</th>
 
-                        <th scope="col">Abstract</th>
+                        <th scope="col">email</th>
 
-                        <th scope="col">product</th>
-                        <th scope="col">Action</th>
-                    </tr>
+                        <th scope="col">role</th>
+                     </tr>
                 </thead>
                 <tbody>
 
-                    @foreach ($blogs as $index => $blog)
+                    @foreach ($users as $index => $user)
                         <tr>
                             <th scope="row">{{ $index + 1 }}</th>
-                            <td>{{ $blog->title }}</td>
-                            <td>{{ $blog->Content }}</td>
-                            <td>{{ $blog->abstract }}</td>
-                            <td>{{ $blog->product }}</td>
-                            <td><button type="button" class="btn btn-info"
-                                onclick="location.href='{{ url('assign', $blog->id) }}'"
-                                >Assign</button>
-                             </td>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->email }}</td>
+                            <td>Client</td>
+
                         </tr>
                     @endforeach
 

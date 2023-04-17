@@ -6,20 +6,22 @@
             Investment
         </h1>
         <div style="margin-top:10vh">
-            <a  onclick="location.href='{{ url('admin') }}'" class="w3-bar-item w3-button" >Dashboard</a>
-            <a href="{{ url('ideas') }}" class="w3-bar-item w3-button">Blogs</a>
-            <a href="#" class="w3-bar-item w3-button"  onclick="location.href='{{ url('rmprofiles') }}'">Rms Profile</a>
-            <a href="#" class="w3-bar-item w3-button"  onclick="location.href='{{ url('profile') }}'">Profile</a>
-            <a class="dropdown-item w3-bar-item w3-button" href="{{ route('logout') }}"
-            onclick="event.preventDefault();
-                          document.getElementById('logout-form').submit();">
-             {{ __('Logout') }}
-         </a>
+            <a  onclick="location.href='{{ url('client') }}'" class="w3-bar-item w3-button" >Dashboard</a>
+            <a href="{{ url('clientblogs') }}" class="w3-bar-item w3-button">Blogs</a>
+            <a href="{{ url('clientRms') }}" class="w3-bar-item w3-button">Rms Profile</a>
+            <a href="{{ url('clientProfile') }}" class="w3-bar-item w3-button"  onclick="location.href='{{ url('profile') }}'">Profile</a>
+                 <a class="dropdown-item" href="{{ route('logout') }}"
+                   onclick="event.preventDefault();
+                                  document.getElementById('logout-form').submit();">
+                    {{ __('Logout') }}
+                </a>
 
-         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-             @csrf
-         </form>
-        </div>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    @csrf
+                </form>
+         </div>
+
+    </div>
 
 
     </div>
@@ -53,7 +55,7 @@
 
                                         </h5>
                                         <h6>
-                                            Creator
+                                            Client
                                         </h6>
                                  <ul class="nav nav-tabs" id="myTab" role="tablist">
                                     <li class="nav-item">

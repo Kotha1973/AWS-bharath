@@ -6,10 +6,10 @@
             Investment
         </h1>
         <div style="margin-top:10vh">
-            <a  onclick="location.href='{{ url('admin') }}'" class="w3-bar-item w3-button" >Dashboard</a>
-            <a href="{{ url('ideas') }}" class="w3-bar-item w3-button">Blogs</a>
-            <a href="#" class="w3-bar-item w3-button"  onclick="location.href='{{ url('rmprofiles') }}'">Rms Profile</a>
-            <a href="#" class="w3-bar-item w3-button"  onclick="location.href='{{ url('profile') }}'">Profile</a>
+            <a  onclick="location.href='{{ url('manager') }}'" class="w3-bar-item w3-button" >Dashboard</a>
+            <a href="{{ url('assigned') }}" class="w3-bar-item w3-button">Assinged</a>
+             <a href="{{ url('clientprofiles') }}" class="w3-bar-item w3-button">Client Profile</a>
+            <a href="{{ url('rmprofile') }}" class="w3-bar-item w3-button">Profile</a>
             <a class="dropdown-item w3-bar-item w3-button" href="{{ route('logout') }}"
             onclick="event.preventDefault();
                           document.getElementById('logout-form').submit();">
@@ -53,7 +53,7 @@
 
                                         </h5>
                                         <h6>
-                                            Creator
+                                            Manager
                                         </h6>
                                  <ul class="nav nav-tabs" id="myTab" role="tablist">
                                     <li class="nav-item">
