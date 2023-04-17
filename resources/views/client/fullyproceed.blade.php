@@ -6,20 +6,23 @@
             Investment
         </h1>
         <div style="margin-top:10vh">
-            <a  onclick="location.href='{{ url('admin') }}'" class="w3-bar-item w3-button" >Dashboard</a>
-            <a href="{{ url('ideas') }}" class="w3-bar-item w3-button">Blogs</a>
-            <a href="#" class="w3-bar-item w3-button"  onclick="location.href='{{ url('rmprofiles') }}'">Rms Profile</a>
-            <a href="#" class="w3-bar-item w3-button"  onclick="location.href='{{ url('profile') }}'">Profile</a>
-            <a class="dropdown-item w3-bar-item w3-button" href="{{ route('logout') }}"
-            onclick="event.preventDefault();
-                          document.getElementById('logout-form').submit();">
-             {{ __('Logout') }}
-         </a>
+            <a  onclick="location.href='{{ url('client') }}'" class="w3-bar-item w3-button" >Dashboard</a>
+            <a href="{{ url('clientblogs') }}" class="w3-bar-item w3-button">Blogs</a>
+            <a href="{{ url('clientRms') }}" class="w3-bar-item w3-button">Rms Profile</a>
+            <a href="{{ url('clientProfile') }}" class="w3-bar-item w3-button"  onclick="location.href='{{ url('profile') }}'">Profile</a>
+                 <a class="dropdown-item" href="{{ route('logout') }}"
+                   onclick="event.preventDefault();
+                                  document.getElementById('logout-form').submit();">
+                    {{ __('Logout') }}
+                </a>
 
-         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-             @csrf
-         </form>
-        </div>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    @csrf
+                </form>
+         </div>
+
+    </div>
+
     </div>
 
     <div style="margin-left:17%">
@@ -34,15 +37,17 @@
 
         </div>
         <div class="dash shadow-sm p-3 mb-5 bg-white rounded">
-            <h2 class="">Investment ideas</h2>
-            <button type="button" class="btn btn-danger" onclick="location.href='{{ route('addblog') }}'">ADD Blog</button>
+            <h2 class="">ideas</h2>
 
             <table class="table">
                 <thead>
                     <tr>
                         <th scope="col">ID</th>
                         <th scope="col">title</th>
+                                                <th scope="col">Content</th>
+
                         <th scope="col">Abstract</th>
+                        <th scope="col">Manager</th>
 
                         <th scope="col">product</th>
                         <th scope="col">Action</th>
@@ -54,14 +59,14 @@
                         <tr>
                             <th scope="row">{{ $index + 1 }}</th>
                             <td>{{ $blog->title }}</td>
+                            <td>{{ $blog->Content }}</td>
                             <td>{{ $blog->abstract }}</td>
+                            <td>{{ $blog->manager_name }}</td>
+
                             <td>{{ $blog->product }}</td>
                             <td><button type="button" class="btn btn-info"
-                                onclick="location.href='{{ url('viewblog', $blog->id) }}'"
-                                >Publish</button>
-                                <button type="button" class="btn btn-danger"
-                                onclick="location.href='{{ url('viewblog', $blog->id) }}'"
-                                >Delete</button>
+                                   >successful</button>
+
                             </td>
                         </tr>
                     @endforeach
